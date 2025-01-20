@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+struct Car {
+    int carID;         
+    char model[50];    
+    float rentalRate;  
+};
+int main() {
+    struct Car cars[3];  
+    int i, days;
+    float totalCost;
+
+    
+    printf("Enter details for 3 cars:\n");
+    for (i = 0; i < 3; i++) {
+        printf("\nCar %d:\n", i + 1);
+        printf("Enter Car ID: ");
+        scanf("%d", &cars[i].carID);
+        printf("Enter Car Model: ");
+        scanf("%s", cars[i].model);
+        printf("Enter Rental Rate per Day: ");
+        scanf("%f", &cars[i].rentalRate);
+    }
+    
+    printf("\nEnter the number of days to calculate the total rental cost: ");
+    scanf("%d", &days);
+
+   
+    printf("\nDetails of Cars and Rental Costs:\n");
+    for (i = 0; i < 3; i++) {
+        totalCost = cars[i].rentalRate * days;
+        printf("\nCar %d:\n", i + 1);
+        printf("Car ID: %d\n", cars[i].carID);
+        printf("Car Model: %s\n", cars[i].model);
+        printf("Rental Rate per Day: %.2f\n", cars[i].rentalRate);
+        printf("Total Rental Cost for %d days: %.2f\n", days, totalCost);
+    }
+
+    return 0;
+}
